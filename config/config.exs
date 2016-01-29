@@ -27,3 +27,11 @@ import_config "#{Mix.env}.exs"
 config :phoenix, :generators,
   migration: true,
   binary_id: false
+
+# Configure guardian
+config :guardian, Guardian,
+  issuer: "PhoenixTrello",
+  ttl: { 3, :days },
+  verify_issuer: true,
+  serializer: PhoenixTrello.GuardianSerializer
+
